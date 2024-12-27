@@ -1,7 +1,7 @@
 {
   "name": "hono-starter-template",
-  "version": "1.0.0",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "lint": "eslint .",
@@ -10,9 +10,12 @@
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-openapi": "^0.18.3",
+    "@libsql/client": "^0.14.0",
     "@scalar/hono-api-reference": "^0.5.163",
     "dotenv": "^16.4.7",
     "dotenv-expand": "^12.0.1",
+    "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
     "hono": "^4.6.13",
     "hono-pino": "^0.7.0",
     "pino": "^9.5.0",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^3.11.2",
     "@types/node": "^20.11.17",
+    "drizzle-kit": "^0.30.1",
     "eslint": "^9.15.0",
     "eslint-plugin-format": "^0.1.3",
     "tsx": "^4.7.1"

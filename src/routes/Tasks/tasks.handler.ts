@@ -1,14 +1,11 @@
 import type { AppRouteHandler } from "@/lib/types.ts";
 
+import db from "@/db/index.ts";
+import { tasks } from "@/db/schema.ts";
+
 import type { ListTasksRoute } from "./tasks.routes.ts";
 
-const list: AppRouteHandler<ListTasksRoute> = (c) => {
-  c.var.logger.info("List of tasks");
-  return c.json([
-    { id: "1", name: "Learn Hono", done: false },
-    // { id: "2", name: "Task 2", done: false },
-    // { id: "3", name: "Task 3", done: false },
-  ]);
+export const list: AppRouteHandler<ListTasksRoute> = async (c) => {
+  const tasks = await db.query.tasks.findMany();
+  return c.json(tasks);
 };
-
-export { list };

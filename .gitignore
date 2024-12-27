@@ -15,6 +15,10 @@ node_modules/
 .env
 .env.production
 
+# db
+**/migrations/*
+dev.db
+
 # logs
 logs/
 *.log

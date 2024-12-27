@@ -10,16 +10,16 @@ import { INTERNAL_SERVER_ERROR, OK } from "../helpers/http-status-codes.ts";
 
 export const onError: ErrorHandler = (err, c) => {
   // get the current Status of the error and then set the response status
-  const currentStatus =
-    "status" in err ? err.status : c.newResponse(null).status;
+  const currentStatus
+    = "status" in err ? err.status : c.newResponse(null).status;
 
   // get the status code of the error
-  const statusCode =
-    currentStatus !== OK
+  const statusCode
+    = currentStatus !== OK
       ? (currentStatus as StatusCode)
       : INTERNAL_SERVER_ERROR;
 
-  const envIsProduction = c.env?.NODE_ENV || env.NODE_ENV;
+  const envIsProduction = c.env?.NODE_ENV || env?.NODE_ENV;
 
   return c.json(
     {

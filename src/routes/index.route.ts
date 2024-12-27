@@ -1,4 +1,4 @@
-import { createRoute, z } from "@hono/zod-openapi";
+import { createRoute } from "@hono/zod-openapi";
 
 import { createMessageObjectSchema, jsonContent } from "@/helpers/openapi-helpers.ts";
 import { createRouter } from "@/lib/create-app.ts";
