@@ -2,9 +2,16 @@ import type { ZodError } from "zod";
 
 import { config } from "dotenv";
 import { expand } from "dotenv-expand";
+import path from "node:path";
 import { z } from "zod";
 
-expand(config());
+expand(config({
+  path: path.resolve(
+    process.cwd(),
+    // eslint-disable-next-line node/no-process-env
+    process.env.NODE_ENV === "test" ? ".env.test" : ".env",
+  ),
+}));
 
 const EnvSchema = z.object({
   NODE_ENV: z
@@ -45,8 +52,8 @@ catch (e) {
 // if (error) {
   const error = e as ZodError;
   console.error("X invalid env");
-  // console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
-  console.error(error.message);
+  console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
+  // console.error(error.message);
   process.exit(1);
 }
 

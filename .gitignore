@@ -17,6 +17,7 @@ node_modules/
 # db
 **/migrations/*
 dev.db
+test.db
 
 # logs
 logs/
