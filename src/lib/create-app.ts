@@ -9,7 +9,7 @@ import {
   serveEmojiFavicon,
 } from "@/middleware/index.ts";
 
-import type { AppBindings } from "./types.ts";
+import type { AppBindings, AppOpenAPI } from "./types.ts";
 
 import defaultHook from "../hooks/default-hook-openapi.ts";
 
@@ -28,4 +28,11 @@ export default function createApp() {
   app.notFound(notFound);
   app.onError(onError);
   return app;
+}
+
+export function createTestApp(router: AppOpenAPI) {
+  const testApp = createApp();
+
+  testApp.route("/", router);
+  return testApp;
 }

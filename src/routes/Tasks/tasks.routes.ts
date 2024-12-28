@@ -1,4 +1,3 @@
-import { notFoundMessage } from "@/lib/constants.ts";
 import { createRoute } from "@hono/zod-openapi";
 import { z } from "zod";
 
@@ -6,6 +5,7 @@ import type defaultHook from "@/hooks/default-hook-openapi.ts";
 
 import { insertTaskSchema, selectTaskSchema } from "@/db/schema.ts";
 import { createErrorsSchema, IdParamsSchema, jsonContent, oneOfJsonContent } from "@/helpers/openapi-helpers.ts";
+import { notFoundMessage } from "@/lib/constants.ts";
 
 import * as HttpStatusCodes from "../../helpers/http-status-codes.ts";
 
